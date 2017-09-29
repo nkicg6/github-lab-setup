@@ -30,10 +30,12 @@
 </section>
 <link rel="stylesheet" href="css/reveal.css">
 <link rel="stylesheet" href="reveal.js/css/theme/nick_white.css" id="theme">
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
 
 <section>
-<section id="slide-org922b248">
-<h2 id="org922b248">Contents</h2>
+<section id="slide-org5a68aa5">
+<h2 id="org5a68aa5">Contents</h2>
 <ul>
 <li>Why do we need version control?</li>
 <li>How do you use it (basics)</li>
@@ -44,8 +46,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org3d5d053">
-<h2 id="org3d5d053">Why do we need version control?</h2>
+<section id="slide-orgf0ac3d5">
+<h2 id="orgf0ac3d5">Why do we need version control?</h2>
 
 <div class="figure">
 <p><img src="images/phdFinal.gif" alt="phdFinal.gif" width="40%" height="40%" />
@@ -69,8 +71,8 @@ by Jorge Cham, <a href="http://www.phdcomics.com">http://www.phdcomics.com</a>
 </section>
 </section>
 <section>
-<section id="slide-org6568348">
-<h2 id="org6568348">Multiple code versions</h2>
+<section id="slide-orge4490a2">
+<h2 id="orge4490a2">Multiple code versions</h2>
 <div class="column" style="float:left; width: 50%">
 <ul>
 <li class="fragment appear">Natural tendency to happen when coding</li>
@@ -94,8 +96,8 @@ by Jorge Cham, <a href="http://www.phdcomics.com">http://www.phdcomics.com</a>
 </section>
 </section>
 <section>
-<section id="slide-org739c242">
-<h2 id="org739c242">What's wrong with this?</h2>
+<section id="slide-org8236978">
+<h2 id="org8236978">What's wrong with this?</h2>
 <p class="fragment (appear)">
 This can be <b>dangerous</b> when running programs!
 </p>
@@ -124,8 +126,8 @@ This can be <b>dangerous</b> when running programs!
 </section>
 </section>
 <section>
-<section id="slide-org412829f">
-<h2 id="org412829f">Version control is a must in software development</h2>
+<section id="slide-orgcd9da26">
+<h2 id="orgcd9da26">Version control is a must in software development</h2>
 <ul>
 <li class="fragment appear">Software developers large and small use version control</li>
 <li class="fragment appear"><a href="https://github.com/Microsoft">Microsoft</a></li>
@@ -149,8 +151,8 @@ in the job market, knowledge of version control and other software development m
 </section>
 </section>
 <section>
-<section id="slide-org3a88b6f">
-<h2 id="org3a88b6f">Still&#x2026; why?</h2>
+<section id="slide-org3a70f54">
+<h2 id="org3a70f54">Still&#x2026; why?</h2>
 <p>
 But we aren't software developers&#x2026;
 </p>
@@ -158,8 +160,8 @@ But we aren't software developers&#x2026;
 </section>
 </section>
 <section>
-<section id="slide-orgdf15888">
-<h2 id="orgdf15888">We develop software</h2>
+<section id="slide-org8468043">
+<h2 id="org8468043">We develop software</h2>
 <div class="org-src-container">
 
 <pre  class="src src-bash"><span style="color: #006FE0;">cd</span> ~/Dropbox/m<span style="color: #008000;">\ </span>new/drg
@@ -200,8 +202,8 @@ This is a serious software project, and would benefit greatly from source contro
 </section>
 </section>
 <section>
-<section id="slide-org48ade20">
-<h2 id="org48ade20">Version control is a must in software development</h2>
+<section id="slide-org47166f8">
+<h2 id="org47166f8">Version control is a must in software development</h2>
 <p>
 "I don't need version control, I work alone"
 </p>
@@ -219,13 +221,13 @@ This is a serious software project, and would benefit greatly from source contro
 </section>
 </section>
 <section>
-<section id="slide-org403d823">
-<h2 id="org403d823">What is it</h2>
+<section id="slide-orgfd996f7">
+<h2 id="orgfd996f7">What is it</h2>
 </section>
 </section>
 <section>
-<section id="slide-org88a84c9">
-<h2 id="org88a84c9">Version control</h2>
+<section id="slide-orgf5906d8">
+<h2 id="orgf5906d8">Version control</h2>
 <p>
 Version control systems save the base file, then just record changes
 </p>
@@ -255,8 +257,8 @@ One of which is called version control
 </section>
 </section>
 <section>
-<section id="slide-orge2aad5e">
-<h2 id="orge2aad5e">Changes</h2>
+<section id="slide-orgba069a4">
+<h2 id="orgba069a4">Changes</h2>
 
 <div class="figure">
 <p><object type="image/svg+xml" data="images/versions.svg" class="org-svg" width="50%" height="50%">
@@ -273,8 +275,8 @@ Sorry, your browser does not support SVG.</object>
 </section>
 </section>
 <section>
-<section id="slide-org6594ea8">
-<h2 id="org6594ea8">Merge</h2>
+<section id="slide-org65b34dd">
+<h2 id="org65b34dd">Merge</h2>
 
 <div class="figure">
 <p><object type="image/svg+xml" data="images/merge.svg" class="org-svg" width="50%" height="50%">
@@ -291,8 +293,8 @@ Sorry, your browser does not support SVG.</object>
 </section>
 </section>
 <section>
-<section id="slide-org23821d3">
-<h2 id="org23821d3">Version control as an "Oh s*** I broke it" insurance</h2>
+<section id="slide-org0165cfc">
+<h2 id="org0165cfc">Version control as an "Oh s*** I broke it" insurance</h2>
 <a href="https://asciinema.org/a/140131" target="_blank"><img src="https://asciinema.org/a/140131.png" "height=500 width=500" /></a>
 
 <p>
@@ -306,8 +308,8 @@ Done.
 </section>
 </section>
 <section>
-<section id="slide-org5007597">
-<h2 id="org5007597">Version control as a record</h2>
+<section id="slide-org1b0216f">
+<h2 id="org1b0216f">Version control as a record</h2>
 <ul>
 <li class="fragment appear">all changes</li>
 <li class="fragment appear">who made them</li>
@@ -318,8 +320,8 @@ Done.
 </section>
 </section>
 <section>
-<section id="slide-org1f0889b">
-<h2 id="org1f0889b"><i>How is this different from dropbox or google versions?</i></h2>
+<section id="slide-org732250c">
+<h2 id="org732250c"><i>How is this different from dropbox or google versions?</i></h2>
 <ul>
 <li class="fragment appear">you can see <b>diffs</b></li>
 <li class="fragment appear">Pick the files or changes to go back to</li>
@@ -329,8 +331,8 @@ Done.
 </section>
 </section>
 <section>
-<section id="slide-org9c3f9a4">
-<h2 id="org9c3f9a4">What is git?</h2>
+<section id="slide-orgcbb8a01">
+<h2 id="orgcbb8a01">What is git?</h2>
 <ul>
 <li class="fragment appear"><a href="https://en.wikipedia.org/wiki/Git">git</a> is an implementation of version control systems</li>
 <li class="fragment appear">made by Linus Torvalds, the creator of the Linux kernal</li>
@@ -342,8 +344,8 @@ Done.
 </section>
 </section>
 <section>
-<section id="slide-orga3e93cd">
-<h2 id="orga3e93cd"></h2>
+<section id="slide-org13eaef2">
+<h2 id="org13eaef2"></h2>
 
 <div class="figure">
 <p><img src="images/GitHub_Logo.png" alt="GitHub_Logo.png" width="50%" height="50%" />
@@ -359,8 +361,8 @@ Done.
 </section>
 </section>
 <section>
-<section id="slide-orgfd5716d">
-<h2 id="orgfd5716d">Interface for collaboration</h2>
+<section id="slide-org6b89c3c">
+<h2 id="org6b89c3c">Interface for collaboration</h2>
 
 <div class="figure">
 <p><img src="images/compare_github_example.png" alt="compare_github_example.png" width="70%" height="70%" />
@@ -371,8 +373,8 @@ Done.
 
 </ul>
 </section>
-<section id="slide-orgdccbf8f">
-<h3 id="orgdccbf8f">Interface for collaboration</h3>
+<section id="slide-orgc08ff9d">
+<h3 id="orgc08ff9d">Interface for collaboration</h3>
 <ul>
 <li class="fragment appear">Git keeps track of who made the changes and when they were made.</li>
 <li class="fragment appear">git and Github make working on code as a team easier.</li>
@@ -382,8 +384,8 @@ Done.
 </section>
 </section>
 <section>
-<section id="slide-orgea4833b">
-<h2 id="orgea4833b">How will you use it?</h2>
+<section id="slide-org0322316">
+<h2 id="org0322316">How will you use it?</h2>
 <p>
 Follow the <a href="https://help.github.com/articles/set-up-git/">Github guide</a> 
 </p>
@@ -408,8 +410,8 @@ Basically:
 </section>
 </section>
 <section>
-<section id="slide-org6be9c8f">
-<h2 id="org6be9c8f">Configure it</h2>
+<section id="slide-org095f11a">
+<h2 id="org095f11a">Configure it</h2>
 <ul>
 <li><a href="https://help.github.com/articles/setting-your-username-in-git/">Github help</a></li>
 <li><a href="https://swcarpentry.github.io/git-novice/02-setup/">Software carpentry</a> lesson with more options</li>
@@ -427,8 +429,8 @@ git config --global user.email <span style="color: #008000;">"your-email"</span>
 </section>
 </section>
 <section>
-<section id="slide-org0625f63">
-<h2 id="org0625f63">Make a github account</h2>
+<section id="slide-org03cb232">
+<h2 id="org03cb232">Make a github account</h2>
 <ol>
 <li><a href="https://github.com/">Github account</a></li>
 <li>if you want a GUI Download <a href="https://desktop.github.com/">GitHub Desktop</a>
@@ -442,8 +444,8 @@ git config --global user.email <span style="color: #008000;">"your-email"</span>
 </section>
 </section>
 <section>
-<section id="slide-org32ecee8">
-<h2 id="org32ecee8">Fork and clone</h2>
+<section id="slide-org02ea54d">
+<h2 id="org02ea54d">Fork and clone</h2>
 <ul>
 <li>Navigate to Diego's <a href="https://github.com/restrepd/">GitHub page</a></li>
 
@@ -465,8 +467,8 @@ Right now I am just going to show you how to stay up to date. Development is a f
 </section>
 </section>
 <section>
-<section id="slide-org38d2546">
-<h2 id="org38d2546">Fork and clone</h2>
+<section id="slide-orgd6184fd">
+<h2 id="orgd6184fd">Fork and clone</h2>
 <ul>
 <li>Click the repository (collection of code files) you want and click <b>clone</b> or <b>open in desktop</b> on the top right corner</li>
 <li>Clone in Github desktop or with ssh/https</li>
@@ -482,8 +484,8 @@ Right now I am just going to show you how to stay up to date. Development is a f
 </section>
 </section>
 <section>
-<section id="slide-orgbb822b7">
-<h2 id="orgbb822b7">Fork and clone</h2>
+<section id="slide-org5179b53">
+<h2 id="org5179b53">Fork and clone</h2>
 <p>
 <b>Clone</b> 
 </p>
@@ -502,8 +504,8 @@ Right now I am just going to show you how to stay up to date. Development is a f
 </section>
 </section>
 <section>
-<section id="slide-orgc542753">
-<h2 id="orgc542753">Staying up to date</h2>
+<section id="slide-org795232d">
+<h2 id="org795232d">Staying up to date</h2>
 <p>
   <i>Developers will have to set the remote&#x2026; more coming soon</i> 
 In a terminal
@@ -518,8 +520,8 @@ git pull
 </section>
 </section>
 <section>
-<section id="slide-org8d42cd6">
-<h2 id="org8d42cd6">Staying up to date</h2>
+<section id="slide-org29dd591">
+<h2 id="org29dd591">Staying up to date</h2>
 <p>
 Github Desktop
 </p>
@@ -532,8 +534,8 @@ Github Desktop
 </section>
 </section>
 <section>
-<section id="slide-org41d221f">
-<h2 id="org41d221f">developer use</h2>
+<section id="slide-org0a77b7c">
+<h2 id="org0a77b7c">developer use</h2>
 <p>
 <i>developer guides coming soon</i> 
 </p>
@@ -568,8 +570,8 @@ Justin actually just submitted a pul request
 </section>
 </section>
 <section>
-<section id="slide-org91b041d">
-<h2 id="org91b041d">Personal vs Organization</h2>
+<section id="slide-orgd9929ca">
+<h2 id="orgd9929ca">Personal vs Organization</h2>
 <p>
 We can set this up a few different ways&#x2026;
 </p>
@@ -585,8 +587,8 @@ We can set this up a few different ways&#x2026;
 </section>
 </section>
 <section>
-<section id="slide-org4204eb3">
-<h2 id="org4204eb3">Organization account</h2>
+<section id="slide-orgd6eb427">
+<h2 id="orgd6eb427">Organization account</h2>
 
 <div class="figure">
 <p><img src="images/git-organization2.png" alt="git-organization2.png" width="50%" height="50%" />
@@ -603,8 +605,8 @@ We can set this up a few different ways&#x2026;
 </section>
 </section>
 <section>
-<section id="slide-org6ac5385">
-<h2 id="org6ac5385">Questions?</h2>
+<section id="slide-orgb537fdc">
+<h2 id="orgb537fdc">Questions?</h2>
 <ul>
 <li>More advanced guides coming as we need them</li>
 <li>the most important part to staying up to date is merging</li>
@@ -613,8 +615,8 @@ We can set this up a few different ways&#x2026;
 </section>
 </section>
 <section>
-<section id="slide-org25f3f32">
-<h2 id="org25f3f32">Resources</h2>
+<section id="slide-org68f9c72">
+<h2 id="org68f9c72">Resources</h2>
 <ul>
 <li><a href="https://swcarpentry.github.io/git-novice/">Software carpentry class</a>
 <ul>
@@ -633,8 +635,8 @@ Highly recommend:
 </section>
 </section>
 <section>
-<section id="slide-orged9bc32">
-<h2 id="orged9bc32">Sources of error</h2>
+<section id="slide-org1dd5306">
+<h2 id="org1dd5306">Sources of error</h2>
 <p>
 <b>Merge conflicts</b> 
 </p>

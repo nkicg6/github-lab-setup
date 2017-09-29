@@ -1,0 +1,298 @@
+#+TITLE: Version control with git and Github
+#+OPTIONS: ^:{} num:nil toc:nil
+#+REVEAL_TRANS: none
+#+REVEAL_THEME: nick_white
+#+REVEAL_ROOT: file:.///reveal.js
+
+* Contents
+- Why do we need version control?
+- How do you use it (basics)
+- more resources
+
+* Why do we need version control?
+
+#+ATTR_HTML: :width 40% :height 40%
+[[file:images/phdFinal.gif]]
+#+REVEAL_HTML: <small>
+by Jorge Cham, http://www.phdcomics.com
+#+REVEAL_HTML: </small>
+#+BEGIN_NOTES
+- This picture has been in every presentation I have seen explaining version control to scientists.
+- We have all been in this situation, using track changes and collaborating with one or more authors on a word doc.
+- This situation is not unique to paper writing. 
+#+END_NOTES
+
+* Multiple code versions
+#+REVEAL_HTML: <div class="column" style="float:left; width: 50%">
+#+ATTR_REVEAL: :frag (appear)
+- Natural tendency to happen when coding
+- programming is an iterative process
+- =main.m=
+- =main_nick.m=
+- =old_main.m=
+- etc... 
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div class="column" style="float:right; width: 50%">
+#+ATTR_HTML: :height 150% :width 150%
+[[file:images/our_code.png]]
+
+#+REVEAL_HTML: </div>
+* What's wrong with this?
+#+ATTR_REVEAL: :frag (appear)
+This can be *dangerous* when running programs!
+#+ATTR_REVEAL: :frag (appear)
+1. Difficult to stay organized
+2. Hard to develop (dropbox will overwrite local changes if you update)
+3. What if you want to go back to a previous version to re-run an old analysis?
+
+#+BEGIN_NOTES
+- We have all done it for papers and what not... it can work
+- similar to the problem of global variables. Unintended consequences.
+   - Especially in Matlab (global namespace)
+- It is also difficult to develop
+- Software developers noticed this problem and have been working on fixing it for decades
+#+END_NOTES
+
+* Version control is a must in software development
+   #+ATTR_REVEAL: :frag (appear)
+- Software developers large and small use version control
+- [[https://github.com/Microsoft][Microsoft]]
+- [[https://github.com/google][Google]]
+- [[https://github.com/python][CPython interpreter]]
+- *Even labs!*
+  - [[https://github.com/JaneliaSciComp][Howard Hughes Medical Institute Janelia Campus]]
+#+BEGIN_NOTES
+Serious software developers use version control. 
+in the job market, knowledge of version control and other software development musts is a main missing skill among self taught programmers
+#+END_NOTES
+
+* Still... why?
+But we aren't software developers...
+
+* We develop software
+
+#+BEGIN_SRC bash :results verbatim :eval no :exports both
+cd ~/Dropbox/m\ new/drg
+wc -l *.m
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+      38 drgBehaviorbyBlock.m     
+    1142 drgMaster.m
+     323 drgPercentLick.m
+     194 drgProbabilisticTimecourse.m
+...
+     137 drgSpikePhase.m
+     270 drgThetaAmpPhaseLick.m
+     189 drgThetaAmpPhaseNew.m
+     234 drgThetaAmpPhaseTrialRange.m
+      23 drg_ecdf.m
+      17 drg_pcolor.m
+      26 drg_play_filters.m
+     253 drgdFvsBFREncRetr.m
+      22 getComputerName.m
+     162 shadedErrorBar.m
+    9401 total
+#+end_example
+*9,000+* Lines of code in one directory!
+
+#+BEGIN_NOTES
+Now before you think none of this matters to us, I want to point out that we develop software. 
+This bash command shows that one directory of .m files contains 30000 lines of code. 
+This is a serious software project, and would benefit greatly from source control 
+#+END_NOTES
+* Version control is a must in software development
+"I don't need version control, I work alone"
+
+[[file:images/hackernews-comment.png]]
+
+- https://news.ycombinator.com/item?id=11415056
+* What is it
+* Version control
+Version control systems save the base file, then just record changes
+#+ATTR_HTML: :width 75% :height 75%
+[[file:images/play-changes.svg]]
+- Space efficient (only saving /diffs/)
+- ONE base version
+#+REVEAL_HTML: <small>
+https://swcarpentry.github.io/git-novice/01-basics/
+#+REVEAL_HTML: </small>
+#+BEGIN_NOTES
+They have come up with some pretty cool fixes. 
+One of which is called version control
+#+END_NOTES
+* Changes
+#+ATTR_HTML: :width 50% :height 50%
+[[file:images/versions.svg]]
+
+#+REVEAL_HTML: <small>
+https://swcarpentry.github.io/git-novice/01-basics/
+#+REVEAL_HTML: </small>
+
+* Merge
+#+ATTR_HTML: :width 50% :height 50%
+[[file:images/merge.svg]]
+
+#+REVEAL_HTML: <small>
+https://swcarpentry.github.io/git-novice/01-basics/
+#+REVEAL_HTML: </small>
+
+* Version control as an "Oh s*** I broke it" insurance
+
+#+HTML: <a href="https://asciinema.org/a/140131" target="_blank"><img src="https://asciinema.org/a/140131.png" "height=500 width=500" /></a>
+
+=git checkout old-version= 
+
+Done. 
+
+* Version control as a record
+  #+ATTR_REVEAL: :frag (appear)
+- all changes
+- who made them
+- your *helpful* commit message. 
+- Example video coming soon. see [[https://swcarpentry.github.io/git-novice/05-history/][software carpentry]] in the meantime
+* /How is this different from dropbox or google versions?/
+  #+ATTR_REVEAL: :frag (appear)
+- you can see *diffs*
+- Pick the files or changes to go back to
+- Previously discussed metadata
+* What is git?
+  #+ATTR_REVEAL: :frag (appear)
+- [[https://en.wikipedia.org/wiki/Git][git]] is an implementation of version control systems
+- made by Linus Torvalds, the creator of the Linux kernal
+- git lives locally on your machine
+- git stores your code in a *repository* 
+- with a few commands, you can use git to track your work
+* 
+#+ATTR_HTML: :width 50% :height 50%
+[[file:images/GitHub_Logo.png]]
+#+ATTR_REVEAL: :frag (appear)
+- [[https://github.com][GitHub]] is a cloud hosting service for git repositories
+- GitHub copies your local repositories to the cloud
+- Allows you to collaborate with others on the same code base
+
+* Interface for collaboration
+#+ATTR_HTML: :width 70% :height 70%
+[[file:images/compare_github_example.png]]
+#+ATTR_REVEAL: :frag (appear)
+- With git, you can easily compare differences between files on a commit by commit basis.
+** Interface for collaboration
+   #+ATTR_REVEAL: :frag (appear)
+-  Git keeps track of who made the changes and when they were made.
+-  git and Github make working on code as a team easier. 
+
+* How will you use it?
+Follow the [[https://help.github.com/articles/set-up-git/][Github guide]] 
+
+Basically:
+- install [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][git]]
+  - comes with unix, linux, and OSX
+  - install on Windows [[https://git-for-windows.github.io/][git for windows]]
+    - or, on Windows 10 use [[https://msdn.microsoft.com/en-us/commandline/wsl/about][Bash for windows]]
+
+* Configure it
+- [[https://help.github.com/articles/setting-your-username-in-git/][Github help]]
+- [[https://swcarpentry.github.io/git-novice/02-setup/][Software carpentry]] lesson with more options
+
+#+BEGIN_SRC bash :results verbatim :exports code :eval no
+git config --global user.name "Nick George"
+git config --global user.email "your-email"
+#+END_SRC
+
+
+* Make a github account
+2. [[https://github.com/][Github account]]
+3. if you want a GUI Download [[https://desktop.github.com/][GitHub Desktop]]
+  - git is predominantly a command line tool, but these GUIs are excellent. 
+
+* Fork and clone
+- Navigate to Diego's [[https://github.com/restrepd/][GitHub page]]
+
+#+ATTR_HTML: :width 70% :height 70%
+[[file:images/diego_git_page.png]]
+
+#+BEGIN_NOTES
+Right now I am just going to show you how to stay up to date. Development is a few extra steps I can go over at a later time. 
+#+END_NOTES
+
+* Fork and clone
+- Click the repository (collection of code files) you want and click *clone* or *open in desktop* on the top right corner
+- Clone in Github desktop or with ssh/https
+- If you are going to contribute code, you need to *Fork* it and clone it from your local page. 
+
+#+ATTR_HTML: :width 70% :height 70%
+[[file:images/clone_download.png]]
+* Fork and clone
+*Clone* 
+- Cloning copies from Diego's page.
+*Fork* 
+- forking makes a local copy of Diego's repository
+- Now go to your copy and hit *clone* or *open in desktop*
+* Staying up to date
+  /Developers will have to set the remote... more coming soon/ 
+In a terminal
+#+BEGIN_SRC bash :results verbatim :eval no
+cd ~/Github/drta
+git pull
+#+END_SRC
+
+* Staying up to date
+Github Desktop
+
+#+ATTR_HTML: :width 70% :height 70%
+[[file:images/desktop_sync.png]]
+* developer use
+  /developer guides coming soon/ 
+  #+ATTR_REVEAL: :frag (appear)
+- Code normally, but...
+- stay up to date with =git pull=
+  - details in /developer guide/
+- use git commands
+  - =git add= 
+  - =git commit=
+  - =git push=
+- Create =pull requests= to add your changes to the main code base
+*COMMIT OFTEN!*
+#+BEGIN_NOTES
+Happy to go over these in more detail. 
+Justin actually just submitted a pul request
+#+END_NOTES
+
+* Personal vs Organization
+We can set this up a few different ways...
+- Diego's personal account
+  - we fork, push, and pull as guests
+
+* Organization account
+#+ATTR_HTML: :width 50% :height 50%
+[[file:images/git-organization2.png]]
+
+- https://github.com/melizalab
+- can add users and assign direct commit permissions based on user or team
+- easy to make a free associated [[https://pages.github.com/][website]]
+
+* Questions?
+
+- More advanced guides coming as we need them
+- the most important part to staying up to date is merging 
+* Resources
+
+- [[https://swcarpentry.github.io/git-novice/][Software carpentry class]]
+  - [[https://swcarpentry.github.io/git-novice/09-conflict/][SWC merge conflicts]]
+  - [[https://swcarpentry.github.io/git-novice/05-history/][SWC explore history/diff/revert]]
+- [[https://guides.github.com/activities/hello-world/][Hello world github]]
+
+Highly recommend:
+https://peerj.com/preprints/3159/
+* Sources of error
+*Merge conflicts* 
+
+#+ATTR_REVEAL: :frag (appear)
+
+- If the remote (main version from Diego) and your version both have changed files and you try to merge... 
+- You will get a merge conflict. 
+- git will not guess which change you want, it will just say you have a problem and make you fix it.
+- See the upcoming lab-developer-guide for avoiding these errors
+- https://team-coder.com/avoid-merge-conflicts/

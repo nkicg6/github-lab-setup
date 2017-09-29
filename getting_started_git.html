@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Version control with git and Github</title>
+<meta name="author" content="(Nick George)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:.///reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:.///reveal.js/css/theme/nick_white.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:.///reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Version control with git and Github</h1><h4>Nick George</h4><h4><a href="mailto:nicholas.m.george@ucdenver.edu">nicholas.m.george@ucdenver.edu</a></h4>
+</section>
+
+<section>
+<section id="slide-org5508b9f">
+<h2 id="org5508b9f">Contents</h2>
+<ul>
+<li>Why do we need version control?</li>
+<li>How do you use it (basics)</li>
+<li>more resources</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org35717d5">
+<h2 id="org35717d5">Why do we need version control?</h2>
+
+<div class="figure">
+<p><img src="images/phdFinal.gif" alt="phdFinal.gif" width="40%" height="40%" />
+</p>
+</div>
+<small>
+<p>
+by Jorge Cham, <a href="http://www.phdcomics.com">http://www.phdcomics.com</a>
+</p>
+</small>
+<aside class="notes">
+<ul>
+<li>This picture has been in every presentation I have seen explaining version control to scientists.</li>
+<li>We have all been in this situation, using track changes and collaborating with one or more authors on a word doc.</li>
+<li>This situation is not unique to paper writing.</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org179e238">
+<h2 id="org179e238">Multiple code versions</h2>
+<div class="column" style="float:left; width: 50%">
+<ul>
+<li class="fragment appear">Natural tendency to happen when coding</li>
+<li class="fragment appear">programming is an iterative process</li>
+<li class="fragment appear"><code>main.m</code></li>
+<li class="fragment appear"><code>main_nick.m</code></li>
+<li class="fragment appear"><code>old_main.m</code></li>
+<li class="fragment appear">etc&#x2026;</li>
+
+</ul>
+</div>
+
+<div class="column" style="float:right; width: 50%">
+
+<div class="figure">
+<p><img src="images/our_code.png" alt="our_code.png" height="150%" width="150%" />
+</p>
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org9875afb">
+<h2 id="org9875afb">What's wrong with this?</h2>
+<p class="fragment (appear)">
+This can be <b>dangerous</b> when running programs!
+</p>
+<ol>
+<li class="fragment appear">Difficult to stay organized</li>
+<li class="fragment appear">Hard to develop (dropbox will overwrite local changes if you update)</li>
+<li class="fragment appear">What if you want to go back to a previous version to re-run an old analysis?</li>
+
+</ol>
+
+<aside class="notes">
+<ul>
+<li>We have all done it for papers and what not&#x2026; it can work</li>
+<li>similar to the problem of global variables. Unintended consequences.
+<ul>
+<li>Especially in Matlab (global namespace)</li>
+
+</ul></li>
+<li>It is also difficult to develop</li>
+<li>Software developers noticed this problem and have been working on fixing it for decades</li>
+
+</ul>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd725eb2">
+<h2 id="orgd725eb2">Version control is a must in software development</h2>
+<ul>
+<li class="fragment appear">Software developers large and small use version control</li>
+<li class="fragment appear"><a href="https://github.com/Microsoft">Microsoft</a></li>
+<li class="fragment appear"><a href="https://github.com/google">Google</a></li>
+<li class="fragment appear"><a href="https://github.com/python">CPython interpreter</a></li>
+<li class="fragment appear"><b>Even labs!</b>
+<ul>
+<li><a href="https://github.com/JaneliaSciComp">Howard Hughes Medical Institute Janelia Campus</a></li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<p>
+Serious software developers use version control. 
+in the job market, knowledge of version control and other software development musts is a main missing skill among self taught programmers
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org4e842a9">
+<h2 id="org4e842a9">Still&#x2026; why?</h2>
+<p>
+But we aren't software developers&#x2026;
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb12954f">
+<h2 id="orgb12954f">We develop software</h2>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><span style="color: #006FE0;">cd</span> ~/Dropbox/m<span style="color: #008000;">\ </span>new/drg
+wc -l *.m
+</pre>
+</div>
+
+<pre class="example">
+      38 drgBehaviorbyBlock.m     
+    1142 drgMaster.m
+     323 drgPercentLick.m
+     194 drgProbabilisticTimecourse.m
+...
+     137 drgSpikePhase.m
+     270 drgThetaAmpPhaseLick.m
+     189 drgThetaAmpPhaseNew.m
+     234 drgThetaAmpPhaseTrialRange.m
+      23 drg_ecdf.m
+      17 drg_pcolor.m
+      26 drg_play_filters.m
+     253 drgdFvsBFREncRetr.m
+      22 getComputerName.m
+     162 shadedErrorBar.m
+    9401 total
+</pre>
+<p>
+<b>9,000+</b> Lines of code in one directory!
+</p>
+
+<aside class="notes">
+<p>
+Now before you think none of this matters to us, I want to point out that we develop software. 
+This bash command shows that one directory of .m files contains 30000 lines of code. 
+This is a serious software project, and would benefit greatly from source control 
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgd5bce71">
+<h2 id="orgd5bce71">Version control is a must in software development</h2>
+<p>
+"I don't need version control, I work alone"
+</p>
+
+
+<div class="figure">
+<p><img src="images/hackernews-comment.png" alt="hackernews-comment.png" />
+</p>
+</div>
+
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=11415056">https://news.ycombinator.com/item?id=11415056</a></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgc312195">
+<h2 id="orgc312195">What is it</h2>
+</section>
+</section>
+<section>
+<section id="slide-org6f1156a">
+<h2 id="org6f1156a">Version control</h2>
+<p>
+Version control systems save the base file, then just record changes
+</p>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="images/play-changes.svg" class="org-svg" width="75%" height="75%">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul>
+<li>Space efficient (only saving <i>diffs</i>)</li>
+<li>ONE base version</li>
+
+</ul>
+<small>
+<p>
+<a href="https://swcarpentry.github.io/git-novice/01-basics/">https://swcarpentry.github.io/git-novice/01-basics/</a>
+</p>
+</small>
+<aside class="notes">
+<p>
+They have come up with some pretty cool fixes. 
+One of which is called version control
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgd687766">
+<h2 id="orgd687766">Changes</h2>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="images/versions.svg" class="org-svg" width="50%" height="50%">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<small>
+<p>
+<a href="https://swcarpentry.github.io/git-novice/01-basics/">https://swcarpentry.github.io/git-novice/01-basics/</a>
+</p>
+</small>
+
+</section>
+</section>
+<section>
+<section id="slide-org8f6ed4b">
+<h2 id="org8f6ed4b">Merge</h2>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="images/merge.svg" class="org-svg" width="50%" height="50%">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<small>
+<p>
+<a href="https://swcarpentry.github.io/git-novice/01-basics/">https://swcarpentry.github.io/git-novice/01-basics/</a>
+</p>
+</small>
+
+</section>
+</section>
+<section>
+<section id="slide-orga68df77">
+<h2 id="orga68df77">Version control as an "Oh s*** I broke it" insurance</h2>
+<a href="https://asciinema.org/a/140131" target="_blank"><img src="https://asciinema.org/a/140131.png" "height=500 width=500" /></a>
+
+<p>
+<code>git checkout old-version</code> 
+</p>
+
+<p>
+Done. 
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org6090144">
+<h2 id="org6090144">Version control as a record</h2>
+<ul>
+<li class="fragment appear">all changes</li>
+<li class="fragment appear">who made them</li>
+<li class="fragment appear">your <b>helpful</b> commit message.</li>
+<li class="fragment appear">Example video coming soon. see <a href="https://swcarpentry.github.io/git-novice/05-history/">software carpentry</a> in the meantime</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgc84a96c">
+<h2 id="orgc84a96c"><i>How is this different from dropbox or google versions?</i></h2>
+<ul>
+<li class="fragment appear">you can see <b>diffs</b></li>
+<li class="fragment appear">Pick the files or changes to go back to</li>
+<li class="fragment appear">Previously discussed metadata</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orga8b5f49">
+<h2 id="orga8b5f49">What is git?</h2>
+<ul>
+<li class="fragment appear"><a href="https://en.wikipedia.org/wiki/Git">git</a> is an implementation of version control systems</li>
+<li class="fragment appear">made by Linus Torvalds, the creator of the Linux kernal</li>
+<li class="fragment appear">git lives locally on your machine</li>
+<li class="fragment appear">git stores your code in a <b>repository</b></li>
+<li class="fragment appear">with a few commands, you can use git to track your work</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org5dcc1aa">
+<h2 id="org5dcc1aa"></h2>
+
+<div class="figure">
+<p><img src="images/GitHub_Logo.png" alt="GitHub_Logo.png" width="50%" height="50%" />
+</p>
+</div>
+<ul>
+<li class="fragment appear"><a href="https://github.com">GitHub</a> is a cloud hosting service for git repositories</li>
+<li class="fragment appear">GitHub copies your local repositories to the cloud</li>
+<li class="fragment appear">Allows you to collaborate with others on the same code base</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc2fae7f">
+<h2 id="orgc2fae7f">Interface for collaboration</h2>
+
+<div class="figure">
+<p><img src="images/compare_github_example.png" alt="compare_github_example.png" width="70%" height="70%" />
+</p>
+</div>
+<ul>
+<li class="fragment appear">With git, you can easily compare differences between files on a commit by commit basis.</li>
+
+</ul>
+</section>
+<section id="slide-orge475ca4">
+<h3 id="orge475ca4">Interface for collaboration</h3>
+<ul>
+<li class="fragment appear">Git keeps track of who made the changes and when they were made.</li>
+<li class="fragment appear">git and Github make working on code as a team easier.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org9037afe">
+<h2 id="org9037afe">How will you use it?</h2>
+<p>
+Follow the <a href="https://help.github.com/articles/set-up-git/">Github guide</a> 
+</p>
+
+<p>
+Basically:
+</p>
+<ul>
+<li>install <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a>
+<ul>
+<li>comes with unix, linux, and OSX</li>
+<li>install on Windows <a href="https://git-for-windows.github.io/">git for windows</a>
+<ul>
+<li>or, on Windows 10 use <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Bash for windows</a></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orge64d2da">
+<h2 id="orge64d2da">Configure it</h2>
+<ul>
+<li><a href="https://help.github.com/articles/setting-your-username-in-git/">Github help</a></li>
+<li><a href="https://swcarpentry.github.io/git-novice/02-setup/">Software carpentry</a> lesson with more options</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash">git config --global user.name <span style="color: #008000;">"Nick George"</span>
+git config --global user.email <span style="color: #008000;">"your-email"</span>
+</pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org95d0061">
+<h2 id="org95d0061">Make a github account</h2>
+<ol>
+<li><a href="https://github.com/">Github account</a></li>
+<li>if you want a GUI Download <a href="https://desktop.github.com/">GitHub Desktop</a>
+<ul>
+<li>git is predominantly a command line tool, but these GUIs are excellent.</li>
+
+</ul></li>
+
+</ol>
+
+</section>
+</section>
+<section>
+<section id="slide-org3220404">
+<h2 id="org3220404">Fork and clone</h2>
+<ul>
+<li>Navigate to Diego's <a href="https://github.com/restrepd/">GitHub page</a></li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="images/diego_git_page.png" alt="diego_git_page.png" width="70%" height="70%" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+Right now I am just going to show you how to stay up to date. Development is a few extra steps I can go over at a later time. 
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb9dabea">
+<h2 id="orgb9dabea">Fork and clone</h2>
+<ul>
+<li>Click the repository (collection of code files) you want and click <b>clone</b> or <b>open in desktop</b> on the top right corner</li>
+<li>Clone in Github desktop or with ssh/https</li>
+<li>If you are going to contribute code, you need to <b>Fork</b> it and clone it from your local page.</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="images/clone_download.png" alt="clone_download.png" width="70%" height="70%" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org917b205">
+<h2 id="org917b205">Fork and clone</h2>
+<p>
+<b>Clone</b> 
+</p>
+<ul>
+<li>Cloining copies from Diego's page.</li>
+
+</ul>
+<p>
+<b>Fork</b> 
+</p>
+<ul>
+<li>forking makes a local copy of Diego's repository</li>
+<li>Now go to your copy and hit <b>clone</b> or <b>open in desktop</b></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgd41515d">
+<h2 id="orgd41515d">Staying up to date</h2>
+<p>
+In a terminal
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><span style="color: #006FE0;">cd</span> ~/Github/drta
+git pull
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org9f2e019">
+<h2 id="org9f2e019">Staying up to date</h2>
+<p>
+Github Desktop
+</p>
+
+
+<div class="figure">
+<p><img src="images/desktop_sync.png" alt="desktop_sync.png" width="70%" height="70%" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org32970a2">
+<h2 id="org32970a2">developer use</h2>
+<p>
+<i>developer guides coming soon</i> 
+</p>
+<ul>
+<li class="fragment appear">Code normally, but&#x2026;</li>
+<li class="fragment appear">stay up to date with <code>git pull</code>
+<ul>
+<li>details in <i>developer guide</i></li>
+
+</ul></li>
+<li class="fragment appear">use git commands
+<ul>
+<li><code>git add</code></li>
+<li><code>git commit</code></li>
+<li><code>git push</code></li>
+
+</ul></li>
+<li class="fragment appear">Create <code>pull requests</code> to add your changes to the main code base</li>
+
+</ul>
+<p>
+<b>COMMIT OFTEN!</b>
+</p>
+<aside class="notes">
+<p>
+Happy to go over these in more detail. 
+Justin actually just submitted a pul request
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org580cf6f">
+<h2 id="org580cf6f">Personal vs Organization</h2>
+<p>
+We can set this up a few different ways&#x2026;
+</p>
+<ul>
+<li>Diego's personal account
+<ul>
+<li>we fork, push, and pull as guests</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org054c483">
+<h2 id="org054c483">Organization account</h2>
+
+<div class="figure">
+<p><img src="images/git-organization2.png" alt="git-organization2.png" width="50%" height="50%" />
+</p>
+</div>
+
+<ul>
+<li><a href="https://github.com/melizalab">https://github.com/melizalab</a></li>
+<li>can add users and assign direct commit permissions based on user or team</li>
+<li>easy to make a free associated <a href="https://pages.github.com/">website</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd263857">
+<h2 id="orgd263857">Questions?</h2>
+<ul>
+<li>More advanced guides coming as we need them</li>
+<li>the most important part to staying up to date is merging</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf8b0e36">
+<h2 id="orgf8b0e36">Resources</h2>
+<ul>
+<li><a href="https://swcarpentry.github.io/git-novice/">Software carpentry class</a>
+<ul>
+<li><a href="https://swcarpentry.github.io/git-novice/09-conflict/">SWC merge conflicts</a></li>
+<li><a href="https://swcarpentry.github.io/git-novice/05-history/">SWC explore history/diff/revert</a></li>
+
+</ul></li>
+<li><a href="https://guides.github.com/activities/hello-world/">Hello world github</a></li>
+
+</ul>
+
+<p>
+Highly recommend:
+<a href="https://peerj.com/preprints/3159/">https://peerj.com/preprints/3159/</a>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org00009ab">
+<h2 id="org00009ab">Sources of error</h2>
+<p>
+<b>Merge conflicts</b> 
+</p>
+
+<ul>
+<li>If the remote (main version from Diego) and your version both have changed files and you try to merge&#x2026;</li>
+<li>You will get a merge conflict.</li>
+<li>git will not guess which change you want, it will just say you have a problem and make you fix it.</li>
+<li>See the upcoming lab-developer-guide for avoiding these errors</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:.///reveal.js/lib/js/head.min.js"></script>
+<script src="file:.///reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:.///reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:.///reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:.///reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:.///reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:.///reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

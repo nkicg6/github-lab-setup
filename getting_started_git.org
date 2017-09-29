@@ -3,7 +3,7 @@
 #+REVEAL_TRANS: none
 #+REVEAL_THEME: nick_white
 #+REVEAL_ROOT: file:.///reveal.js
-#+HTML: <link rel="stylesheet" href="css/reveal.css">
+#+HTML: <link rel="stylesheet" href="reveal.js/css/reveal.css">
 #+HTML: <link rel="stylesheet" href="reveal.js/css/theme/nick_white.css" id="theme">
 #+HTML: <script src="reveal.js/lib/js/head.min.js"></script>
 #+HTML:<script src="reveal.js/js/reveal.js"></script>

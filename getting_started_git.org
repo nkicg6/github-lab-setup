@@ -287,7 +287,7 @@ We can set this up a few different ways...
 - More advanced guides coming as we need them
 - the most important part to staying up to date is merging 
 * Resources
-
+- [[https://help.github.com/articles/differences-between-user-and-organization-accounts/][individual vs organization]]
 - [[https://swcarpentry.github.io/git-novice/][Software carpentry class]]
   - [[https://swcarpentry.github.io/git-novice/09-conflict/][SWC merge conflicts]]
   - [[https://swcarpentry.github.io/git-novice/05-history/][SWC explore history/diff/revert]]
@@ -300,6 +300,16 @@ https://peerj.com/preprints/3159/
 - you can see *diffs*
 - Pick the files or changes to go back to
 - Previously discussed metadata
+* Sources of error
+*Merge conflicts* 
+
+#+ATTR_REVEAL: :frag (appear)
+
+- If the remote (main version from Diego) and your version both have changed files and you try to merge... 
+- You will get a merge conflict. 
+- git will not guess which change you want, it will just say you have a problem and make you fix it.
+- See the upcoming lab-developer-guide for avoiding these errors
+- https://team-coder.com/avoid-merge-conflicts/
 * Hide
 ** Version control
  Version control systems save the base file, then just records changes
@@ -329,22 +339,7 @@ https://peerj.com/preprints/3159/
  #+REVEAL_HTML: <small>
  https://swcarpentry.github.io/git-novice/01-basics/
  #+REVEAL_HTML: </small>
-* Sources of error
-*Merge conflicts* 
-
-#+ATTR_REVEAL: :frag (appear)
-
-- If the remote (main version from Diego) and your version both have changed files and you try to merge... 
-- You will get a merge conflict. 
-- git will not guess which change you want, it will just say you have a problem and make you fix it.
-- See the upcoming lab-developer-guide for avoiding these errors
-- https://team-coder.com/avoid-merge-conflicts/
-
-
-
 * 
-
-
 * References
   bibliographystyle:apalike
   bibliography:~/Dropbox/bibliography/library.bib

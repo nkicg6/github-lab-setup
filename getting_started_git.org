@@ -2,17 +2,20 @@
 #+OPTIONS: ^:{} num:nil toc:nil
 #+REVEAL_TRANS: none
 #+REVEAL_THEME: nick_white
-#+REVEAL_ROOT: file:.///reveal.js
+
 #+HTML: <link rel="stylesheet" href="reveal.js/css/reveal.css">
 #+HTML: <link rel="stylesheet" href="reveal.js/css/theme/nick_white.css" id="theme">
 #+HTML: <script src="reveal.js/lib/js/head.min.js"></script>
 #+HTML:<script src="reveal.js/js/reveal.js"></script>
 
 * Contents
+
+#+ATTR_REVEAL: :frag (appear)
 - Why do we need version control?
 - How do you use it (basics)
 - more resources
-
+#+ATTR_REVEAL: :frag (appear)
+http://nickgeorge.net/github-lab-setup/getting_started_git.html
 * Why do we need version control?
 
 #+ATTR_HTML: :width 40% :height 40%
@@ -58,6 +61,17 @@ This can be *dangerous* when running programs!
 - Software developers noticed this problem and have been working on fixing it for decades
 #+END_NOTES
 
+* version control workflow
+
+
+  #+ATTR_HTML: :width 50% :height 50%
+[[file:images/Bryan_2017figure1.png]]
+cite:Bryan2017
+
+#+ATTR_REVEAL: :frag (appear)
+- Base version is saved
+- New versions get comments and /diffs/ are recorded
+
 * Version control is a must in software development
    #+ATTR_REVEAL: :frag (appear)
 - Software developers large and small use version control
@@ -73,6 +87,13 @@ in the job market, knowledge of version control and other software development m
 
 * Still... why?
 But we aren't software developers...
+
+* 
+
+#+BEGIN_SRC bash :results verbatim :eval no :exports both
+cd ~/Dropbox/m\ new/drg
+wc -l *.m
+#+END_SRC
 
 * We develop software
 
@@ -104,8 +125,8 @@ wc -l *.m
 
 #+BEGIN_NOTES
 Now before you think none of this matters to us, I want to point out that we develop software. 
-This bash command shows that one directory of .m files contains 30000 lines of code. 
-This is a serious software project, and would benefit greatly from source control 
+This bash command shows that one directory of .m files contains 9000 lines of code. 
+This is a serious software project, and would benefit greatly from version control 
 #+END_NOTES
 * Version control is a must in software development
 "I don't need version control, I work alone"
@@ -113,43 +134,14 @@ This is a serious software project, and would benefit greatly from source contro
 [[file:images/hackernews-comment.png]]
 
 - https://news.ycombinator.com/item?id=11415056
-* What is it
-* Version control
-Version control systems save the base file, then just record changes
-#+ATTR_HTML: :width 75% :height 75%
-[[file:images/play-changes.svg]]
-- Space efficient (only saving /diffs/)
-- ONE base version
-#+REVEAL_HTML: <small>
-https://swcarpentry.github.io/git-novice/01-basics/
-#+REVEAL_HTML: </small>
-#+BEGIN_NOTES
-They have come up with some pretty cool fixes. 
-One of which is called version control
-#+END_NOTES
-* Changes
-#+ATTR_HTML: :width 50% :height 50%
-[[file:images/versions.svg]]
+* What is it version control?
 
-#+REVEAL_HTML: <small>
-https://swcarpentry.github.io/git-novice/01-basics/
-#+REVEAL_HTML: </small>
+* Version control as an "Oh **** I broke it" insurance
 
-* Merge
-#+ATTR_HTML: :width 50% :height 50%
-[[file:images/merge.svg]]
-
-#+REVEAL_HTML: <small>
-https://swcarpentry.github.io/git-novice/01-basics/
-#+REVEAL_HTML: </small>
-
-* Version control as an "Oh s*** I broke it" insurance
-
-#+HTML: <a href="https://asciinema.org/a/140131" target="_blank"><img src="https://asciinema.org/a/140131.png" "height=500 width=500" /></a>
-
+#+HTML: <a href="https://asciinema.org/a/140131" target="_blank"><img src="https://asciinema.org/a/140131.png" "height=425 width=425" /></a>
 =git checkout old-version= 
 
-Done. 
+*Done.*
 
 * Version control as a record
   #+ATTR_REVEAL: :frag (appear)
@@ -157,15 +149,11 @@ Done.
 - who made them
 - your *helpful* commit message. 
 - Example video coming soon. see [[https://swcarpentry.github.io/git-novice/05-history/][software carpentry]] in the meantime
-* /How is this different from dropbox or google versions?/
-  #+ATTR_REVEAL: :frag (appear)
-- you can see *diffs*
-- Pick the files or changes to go back to
-- Previously discussed metadata
+
 * What is git?
   #+ATTR_REVEAL: :frag (appear)
-- [[https://en.wikipedia.org/wiki/Git][git]] is an implementation of version control systems
-- made by Linus Torvalds, the creator of the Linux kernal
+- [[https://en.wikipedia.org/wiki/Git][git]] is a version control system (there are many others...)
+- written by Linus Torvalds, the creator of the Linux kernal
 - git lives locally on your machine
 - git stores your code in a *repository* 
 - with a few commands, you can use git to track your work
@@ -188,15 +176,23 @@ Done.
 -  git and Github make working on code as a team easier. 
 
 * How will you use it?
+#+ATTR_REVEAL: :frag (appear)
+1. Install git
+2. Configure git
+3. Make a github accound
+4. Clone
+5. Sync
+6. Contribute
+* 1. Install git
 Follow the [[https://help.github.com/articles/set-up-git/][Github guide]] 
 
-Basically:
-- install [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][git]]
-  - comes with unix, linux, and OSX
-  - install on Windows [[https://git-for-windows.github.io/][git for windows]]
-    - or, on Windows 10 use [[https://msdn.microsoft.com/en-us/commandline/wsl/about][Bash for windows]]
+install [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][git]]
 
-* Configure it
+#+REVEAL: split
+- comes with unix, linux, and OSX
+  - install on Windows [[https://git-for-windows.github.io/][git for windows]]
+  - or, on Windows 10 use [[https://msdn.microsoft.com/en-us/commandline/wsl/about][Bash for windows]]
+* 2. Configure it
 - [[https://help.github.com/articles/setting-your-username-in-git/][Github help]]
 - [[https://swcarpentry.github.io/git-novice/02-setup/][Software carpentry]] lesson with more options
 
@@ -206,12 +202,12 @@ git config --global user.email "your-email"
 #+END_SRC
 
 
-* Make a github account
-2. [[https://github.com/][Github account]]
-3. if you want a GUI Download [[https://desktop.github.com/][GitHub Desktop]]
+* 3. Make a github account
+- [[https://github.com/][Github account]]
+- if you want a GUI Download [[https://desktop.github.com/][GitHub Desktop]]
   - git is predominantly a command line tool, but these GUIs are excellent. 
 
-* Fork and clone
+* 4. Fork and clone
 - Navigate to Diego's [[https://github.com/restrepd/][GitHub page]]
 
 #+ATTR_HTML: :width 70% :height 70%
@@ -221,36 +217,43 @@ git config --global user.email "your-email"
 Right now I am just going to show you how to stay up to date. Development is a few extra steps I can go over at a later time. 
 #+END_NOTES
 
-* Fork and clone
+* 4. Fork and clone
+#+ATTR_REVEAL: :frag (appear)
 - Click the repository (collection of code files) you want and click *clone* or *open in desktop* on the top right corner
 - Clone in Github desktop or with ssh/https
-- If you are going to contribute code, you need to *Fork* it and clone it from your local page. 
 
 #+ATTR_HTML: :width 70% :height 70%
 [[file:images/clone_download.png]]
-* Fork and clone
+* 4. Fork and clone
 *Clone* 
+#+ATTR_REVEAL: :frag (appear)
 - Cloning copies from Diego's page.
 *Fork* 
+#+ATTR_REVEAL: :frag (appear)
 - forking makes a local copy of Diego's repository
 - Now go to your copy and hit *clone* or *open in desktop*
-* Staying up to date
+
+* 5. Staying up to date
+Github Desktop
+
+#+ATTR_HTML: :width 70% :height 70%
+[[file:images/desktop_sync.png]]
+* 5. Staying up to date
   /Developers will have to set the remote... more coming soon/ 
+
 In a terminal
 #+BEGIN_SRC bash :results verbatim :eval no
 cd ~/Github/drta
 git pull
 #+END_SRC
 
-* Staying up to date
-Github Desktop
+* 6. Contribute
+*For developers!*
 
-#+ATTR_HTML: :width 70% :height 70%
-[[file:images/desktop_sync.png]]
-* developer use
   /developer guides coming soon/ 
   #+ATTR_REVEAL: :frag (appear)
 - Code normally, but...
+#+REVEAL: split
 - stay up to date with =git pull=
   - details in /developer guide/
 - use git commands
@@ -263,9 +266,11 @@ Github Desktop
 Happy to go over these in more detail. 
 Justin actually just submitted a pul request
 #+END_NOTES
+* As a team
 
-* Personal vs Organization
+* Personal vs organization account
 We can set this up a few different ways...
+#+ATTR_REVEAL: :frag (appear)
 - Diego's personal account
   - we fork, push, and pull as guests
 
@@ -290,6 +295,40 @@ We can set this up a few different ways...
 
 Highly recommend:
 https://peerj.com/preprints/3159/
+* /How is this different from dropbox or google versions?/
+  #+ATTR_REVEAL: :frag (appear)
+- you can see *diffs*
+- Pick the files or changes to go back to
+- Previously discussed metadata
+* Hide
+** Version control
+ Version control systems save the base file, then just records changes
+ #+ATTR_HTML: :width 75% :height 75%
+ [[file:images/play-changes.svg]]
+ - Space efficient (only saving /diffs/)
+ - ONE base version
+ #+REVEAL_HTML: <small>
+ https://swcarpentry.github.io/git-novice/01-basics/
+ #+REVEAL_HTML: </small>
+ #+BEGIN_NOTES
+ They have come up with some pretty cool fixes. 
+ One of which is called version control
+ #+END_NOTES
+** Changes
+ #+ATTR_HTML: :width 50% :height 50%
+ [[file:images/versions.svg]]
+
+ #+REVEAL_HTML: <small>
+ https://swcarpentry.github.io/git-novice/01-basics/
+ #+REVEAL_HTML: </small>
+
+** Merge
+ #+ATTR_HTML: :width 50% :height 50%
+ [[file:images/merge.svg]]
+
+ #+REVEAL_HTML: <small>
+ https://swcarpentry.github.io/git-novice/01-basics/
+ #+REVEAL_HTML: </small>
 * Sources of error
 *Merge conflicts* 
 
@@ -300,3 +339,15 @@ https://peerj.com/preprints/3159/
 - git will not guess which change you want, it will just say you have a problem and make you fix it.
 - See the upcoming lab-developer-guide for avoiding these errors
 - https://team-coder.com/avoid-merge-conflicts/
+
+
+
+* 
+
+
+* References
+  bibliographystyle:apalike
+  bibliography:~/Dropbox/bibliography/library.bib
+#+LATEX_HEADER: \hypersetup{colorlinks=true,citecolor=black,linkcolor=black,urlcolor=blue,linkbordercolor=blue,pdfborderstyle={/S/U/W 1}}
+#+LATEX_HEADER: \usepackage[round]{natbib}
+#+LATEX_HEADER: \renewcommand{\bibsection}
